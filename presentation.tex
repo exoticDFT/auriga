@@ -6,6 +6,7 @@
 \usepackage{fancyvrb}
 \usepackage{tikz}
 \usepackage{pgfplots}
+\usepackage{minted}
 
 \ifnotes
 \setbeamertemplate{note page}[plain]
@@ -13,7 +14,7 @@
 \fi
 
 \usetheme{auriga}
-\usecolortheme{auriga}
+\usecolortheme{stanford}
 
 % define some colors for a consistent theme across slides
 \definecolor{red}{RGB}{181, 23, 0}
@@ -25,6 +26,16 @@
 \author{\underline{Alyssa P. Hacker} \inst{1} \and Ben Bitdiddle \inst{2} \and Lem E. Tweakit \inst{2}}
 
 \institute[shortinst]{\inst{1} Some Institute \samelineand \inst{2} Another Institute}
+
+% The following are optional lines you can add to the title page
+\subtitle{Location/session/date/etc.} % optional
+
+\titlegraphic{
+  \includegraphics[height=1.5cm]{logos/SUTree-white.pdf}
+} % optional
+
+% Optional logo for the bottom-right corner of all slides other than title page
+% \logo{\includegraphics[height=1cm]{logos/SUTree-2color.pdf}} % optional
 
 \begin{document}
 

@@ -14,3 +14,4 @@
 *.vrb
 *.fdb_latexmk
 *.fls
+_minted-*

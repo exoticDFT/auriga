@@ -30,6 +30,7 @@
 
 \setbeamerfont{title page}{family=\Raleway}
 \setbeamerfont{title page title}{size=\LARGE,series=\bfseries}
+\setbeamerfont{title page subtitle}{size=\normalsize,series=\bfseries}
 \setbeamerfont{title page author}{size=\footnotesize}
 \setbeamerfont{title page institute}{size=\scriptsize}
 \setbeamerfont{frametitle}{family=\Raleway,size=\large,series=\bfseries}
@@ -86,13 +87,29 @@
 % Title page
 \setbeamertemplate{title page}
 {
-    \begin{centering}
-        \vskip5ex plus 1filll
-        {\usebeamerfont{title page title}\usebeamercolor[fg]{title page}\inserttitle\\[1.5ex]}
-        {\usebeamerfont{title page author}\usebeamercolor[fg]{title page}\insertauthor\\[2ex]}
-        {\usebeamerfont{title page institute}\usebeamercolor[fg]{title page}\insertinstitute\\[1ex]}
-        \vskip0pt plus 1filll
-    \end{centering}
+  % Fill in the background color (for some reason \usebeamercolor cannot be used with the [fill=] option)
+  \begin{tikzpicture}[remember picture, overlay]
+    \draw[fill=cardinalred] (current page.south west) rectangle (current page.north east);
+  \end{tikzpicture}
+  \begin{centering}
+    \ifx \insertsubtitle\@empty
+      \vskip5ex plus 1filll
+      {\usebeamerfont{title page title}\usebeamercolor[fg]{title page}\inserttitle\\[1.5ex]}
+    \else
+      \vskip0ex plus 1filll
+      {\usebeamerfont{title page title}\usebeamercolor[fg]{title page}\inserttitle\\[1ex]}
+      {\usebeamerfont{title page subtitle}\usebeamercolor[fg]{title page}\insertsubtitle\\[2ex]}
+    \fi
+    {\usebeamerfont{title page author}\usebeamercolor[fg]{title page}\insertauthor\\[2ex]}
+    {\usebeamerfont{title page institute}\usebeamercolor[fg]{title page}\insertinstitute\\[1ex]}
+    \vskip0pt plus 1filll
+    \ifx\inserttitlegraphic\@empty
+    \else
+      \begin{center}
+        \inserttitlegraphic
+      \end{center}
+    \fi
+  \end{centering}
 }
 
 % Footer
