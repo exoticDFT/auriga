@@ -96,13 +96,19 @@
       \vskip5ex plus 1filll
       {\usebeamerfont{title page title}\usebeamercolor[fg]{title page}\inserttitle\\[1.5ex]}
     \else
-      \vskip-5ex plus 1filll
+      \vskip0ex plus 1filll
       {\usebeamerfont{title page title}\usebeamercolor[fg]{title page}\inserttitle\\[1ex]}
       {\usebeamerfont{title page subtitle}\usebeamercolor[fg]{title page}\insertsubtitle\\[2ex]}
     \fi
     {\usebeamerfont{title page author}\usebeamercolor[fg]{title page}\insertauthor\\[2ex]}
     {\usebeamerfont{title page institute}\usebeamercolor[fg]{title page}\insertinstitute\\[1ex]}
     \vskip0pt plus 1filll
+    \ifx\inserttitlegraphic\@empty
+    \else
+      \begin{center}
+        \inserttitlegraphic
+      \end{center}
+    \fi
   \end{centering}
 }
 
